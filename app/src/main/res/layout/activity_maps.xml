@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MapsActivity">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="@color/white">
+
+        <fragment
+            android:id="@+id/autocomplete_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_map"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="Map"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:layout_below="@id/search"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:onClick="map_clicked"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_info"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="Info"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_below="@id/btn_map"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:onClick="info_clicked"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search"
+        android:layout_marginLeft="30dp"
+        android:layout_toLeftOf="@id/btn_map"
+        android:layout_above="@id/btn_location"
+        android:visibility="invisible"
+        android:background="#ddd"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_location"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="@string/location"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginVertical="100dp"
+        android:onClick="location_clicked"/>
+</RelativeLayout>
